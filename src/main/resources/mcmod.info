@@ -1,0 +1,11 @@
+[{
+  "modid": "pridestudio",
+  "name": "Pride Studio",
+  "description": "Edit the world like Blender, live in Minecraft: an orthographic build camera now; editor mode, sculpt brushes, //fill-style tools and more coming.",
+  "version": "${version}",
+  "mcversion": "1.12.2",
+  "url": "https://github.com/crunkazcanbe/PrideStudio",
+  "authorList": ["crunkazcanbe"],
+  "credits": "Camera ideas from OrthoCamera by DimasKama (MIT). Editor ideas inspired by Axiom, VoxelSniper and WorldEdit (no code copied). Part of the Pride modpack.",
+  "requiredMods": ["forge"]
+}]

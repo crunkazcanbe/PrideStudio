@@ -1,0 +1,45 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net/' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle'
+
+version = "0.6.0"
+group = 'com.dogpound.pridestudio'
+archivesBaseName = 'PrideStudio-1.12.2'
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+
+minecraft {
+    mappings channel: 'snapshot', version: '20171003-1.12'
+}
+
+repositories { mavenCentral() }
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
+    compileOnly files('libs/mixinbooter-api.jar')
+    compileOnly files('libs/sponge-mixin.jar')
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('mcmod.info') { expand 'version': project.version }
+}
+
+jar {
+    exclude 'zone/**'
+    manifest {
+        attributes([
+            'FMLCorePlugin'               : 'com.dogpound.pridestudio.PrideStudioCore',
+            'FMLCorePluginContainsFMLMod' : 'true',
+            'ForceLoadAsMod'              : 'false',
+            'MixinConfigs'                : 'pridestudio.mixins.json'
+        ])
+    }
+}
+jar.finalizedBy('reobfJar')

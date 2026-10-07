@@ -1,0 +1,9 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "com.dogpound.pridestudio.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "MixinOrthoCamera"
+  ]
+}
